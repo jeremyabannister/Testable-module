@@ -5,22 +5,18 @@
 //  Created by Jeremy Bannister on 3/24/23.
 //
 
-// MARK: - Head -
-
 ///
 public protocol Testable { }
 
-
-// MARK: - Stack -
-
 ///
-public extension Testable {
+extension Testable {
     
     ///
-    func assertMap
-        <NewValue>
-        (_ transform: (Self)throws->NewValue?)
-    throws -> NewValue {
+    public func assertMap<
+        NewValue
+    >(
+        _ transform: (Self)throws->NewValue?
+    ) throws -> NewValue {
         
         ///
         guard let newValue = try transform(self) else {
@@ -33,10 +29,11 @@ public extension Testable {
     
     ///
     @available(macOS 10.15.0, iOS 13.0, watchOS 6.0.0, tvOS 13.0.0, *)
-    func assertMap
-        <NewValue>
-        (_ transform: (Self)async throws->NewValue?)
-    async throws -> NewValue {
+    public func assertMap<
+        NewValue
+    >(
+        _ transform: (Self)async throws->NewValue?
+    ) async throws -> NewValue {
         
         ///
         guard let newValue = try await transform(self) else {
@@ -49,12 +46,16 @@ public extension Testable {
 }
 
 ///
-public extension Testable {
+extension Testable {
     
     ///
     @discardableResult
-    func assert <Value: Equatable> (_ keyPath: KeyPath<Self, Value>,
-                                    doesNotEqual value: Value) throws -> Self {
+    public func assert<
+        Value: Equatable
+    >(
+        _ keyPath: KeyPath<Self, Value>,
+        doesNotEqual value: Value
+    ) throws -> Self {
         
         ///
         guard self[keyPath: keyPath] != value else {
@@ -67,8 +68,12 @@ public extension Testable {
     
     ///
     @discardableResult
-    func assert <Value: Equatable> (_ keyPath: KeyPath<Self, Value>,
-                                    equals value: Value) throws -> Self {
+    public func assert<
+        Value: Equatable
+    >(
+        _ keyPath: KeyPath<Self, Value>,
+        equals value: Value
+    ) throws -> Self {
         
         ///
         if self[keyPath: keyPath] != value {
@@ -81,15 +86,16 @@ public extension Testable {
 }
 
 ///
-public extension Testable {
+extension Testable {
     
     ///
     @discardableResult
-    func assert
-        <Value>
-        (_ keyPath: KeyPath<Self, Value>,
-         satisfies predicate: @escaping (Value)throws->Bool)
-    throws -> Self {
+    public func assert<
+        Value
+    >(
+        _ keyPath: KeyPath<Self, Value>,
+        satisfies predicate: @escaping (Value)throws->Bool
+    ) throws -> Self {
         
         ///
         try predicate(self[keyPath: keyPath])
@@ -107,11 +113,12 @@ public extension Testable {
     ///
     @available(macOS 10.15.0, iOS 13.0, watchOS 6.0.0, tvOS 13.0.0, *)
     @discardableResult
-    func assert
-        <Value>
-        (_ keyPath: KeyPath<Self, Value>,
-         satisfies predicate: @escaping (Value)async throws->Bool)
-    async throws -> Self {
+    public func assert<
+        Value
+    >(
+        _ keyPath: KeyPath<Self, Value>,
+        satisfies predicate: @escaping (Value)async throws->Bool
+    ) async throws -> Self {
         
         ///
         try await predicate(self[keyPath: keyPath])
@@ -128,14 +135,13 @@ public extension Testable {
 }
 
 ///
-
-public extension Testable {
+extension Testable {
     
     ///
     @discardableResult
-    func assert
-        (condition: @escaping (Self)throws->Bool)
-    throws -> Self {
+    public func assert(
+        condition: @escaping (Self)throws->Bool
+    ) throws -> Self {
         
         ///
         guard try condition(self) else {
@@ -149,9 +155,9 @@ public extension Testable {
     ///
     @available(macOS 10.15.0, iOS 13.0, watchOS 6.0.0, tvOS 13.0.0, *)
     @discardableResult
-    func assert
-        (condition: @escaping (Self)async throws->Bool)
-    async throws -> Self {
+    public func assert(
+        condition: @escaping (Self)async throws->Bool
+    ) async throws -> Self {
         
         ///
         guard try await condition(self) else {

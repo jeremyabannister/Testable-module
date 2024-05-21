@@ -10,7 +10,10 @@ extension Dictionary where Value: Equatable {
     
     ///
     @discardableResult
-    public func assertValue (forKey key: Key, equals other: Value) throws -> Self {
+    public func assertValue(
+        forKey key: Key,
+        equals other: Value
+    ) throws -> Self {
         
         ///
         guard let value = self[key] else {
@@ -28,7 +31,9 @@ extension Dictionary where Value: Equatable {
     
     ///
     @discardableResult
-    public func assertNoValue (forKey key: Key) throws -> Self {
+    public func assertNoValue(
+        forKey key: Key
+    ) throws -> Self {
         
         ///
         guard !keys.contains(key) else {

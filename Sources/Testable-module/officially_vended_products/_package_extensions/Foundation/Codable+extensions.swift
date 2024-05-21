@@ -9,7 +9,7 @@
 extension Equatable where Self: Codable {
     
     ///
-    public func assertRoundTripCoding () throws {
+    public func assertRoundTripCoding() throws {
         try JSONDecoder()
             .decode(
                 Self.self,
