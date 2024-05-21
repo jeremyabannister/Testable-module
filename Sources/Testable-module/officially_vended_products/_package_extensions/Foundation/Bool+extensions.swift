@@ -6,7 +6,7 @@
 //
 
 ///
-extension Testable where Self == Bool {
+extension Bool {
     
     ///
     @discardableResult

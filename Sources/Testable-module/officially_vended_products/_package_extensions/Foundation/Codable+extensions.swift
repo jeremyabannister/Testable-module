@@ -6,9 +6,7 @@
 //
 
 ///
-extension Testable
-    where Self: Codable,
-          Self: Equatable {
+extension Equatable where Self: Codable {
     
     ///
     public func assertRoundTripCoding () throws {
@@ -20,4 +18,3 @@ extension Testable
             .assertEqual(to: self)
     }
 }
-

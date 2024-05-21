@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "errormessage-module",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/ErrorMessage-module",
+      "state" : {
+        "revision" : "4eea71d7b3dc1a24fb0a69871009265819ec7ec5",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "xctesttoolkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jeremyabannister/XCTestToolkit",
+      "state" : {
+        "revision" : "ad6a4de96c7ff31435afb1945f719a30edc867ad",
+        "version" : "0.1.5"
+      }
+    }
+  ],
+  "version" : 2
+}

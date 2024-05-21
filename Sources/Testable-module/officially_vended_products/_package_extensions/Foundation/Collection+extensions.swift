@@ -6,7 +6,7 @@
 //
 
 ///
-extension Collection where Self: Testable, Element: Equatable {
+extension Collection where Element: Equatable {
     
     ///
     @discardableResult
